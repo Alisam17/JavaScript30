@@ -67,6 +67,11 @@
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
+    // const category = document.querySelector('.mw-category');
+    // const links = Array.from(category.querySelectorAll('a'));
+    // const de = links
+    //             .map(link => link.textContent)
+    //             .filter(streetName => streetName.includes('de'));
 
 
 
@@ -79,7 +84,16 @@
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+    const counts = data.reduce((acc, vehicle) => {
+      acc[vehicle] = (acc[vehicle] || 0) + 1;
+      return acc;
+    }, {});
+    // the {} at the end means that we are starting with an empty object
+    // acc[vehicle] is the actual count value of that specific vehicle. acc[car] after the first iteration is 1 for example
+    // the logical or operator chooses any "truthy" value, which occurs any time after the first time a vehicle is added
+    // the first time for car, it is like undefined || 0 which returns 0 + 1. the next time however it does 1 || 0 which returns 1 + 1 = 2
 
+    console.log(counts);
   </script>
 </body>
 </html>
